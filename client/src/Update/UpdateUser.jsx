@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import './updateUser.css';
 
 const UpdateUser = () => {
+    const API_URL = import.meta.env.VITE_API_URL;
     const { id } = useParams();                       // ✅ destructure
     const navigate = useNavigate();
 
@@ -19,7 +20,7 @@ const UpdateUser = () => {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const res = await axios.get(`http://localhost:1234/api/user/${id}`);
+                const res = await axios.get(`${API_URL}/api/user/${id}`);
                 setUser({
                     name: res.data.name,
                     email: res.data.email,

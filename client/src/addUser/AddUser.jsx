@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 const AddUser = () => {
+    const API_URL = import.meta.env.VITE_API_URL;
     const users = {
         name: "",
         email: "",
@@ -38,7 +39,7 @@ const AddUser = () => {
         if (!validate()) return
         try {
             // Dùng try/catch với await cho code gọn gàng
-            await axios.post("http://localhost:1234/api/user", user);
+            await axios.post(`${API_URL}/api/use`, user);
             console.log("User created successfully");
             toast.success("Thêm user thành công", { position: "top-right" })
             navigate("/");

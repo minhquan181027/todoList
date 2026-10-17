@@ -5,13 +5,14 @@ import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 const User = () => {
+    const API_URL = import.meta.env.VITE_API_URL;
     const [users, setUsers] = useState([]);        // ✅ array rỗng
     const [search, setSearch] = useState('');      // ✅ chuỗi rỗng
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await axios.get('http://localhost:1234/api/users');
+                const res = await axios.get(`${API_URL}/api/users`);
                 setUsers(Array.isArray(res.data) ? res.data : []);   // ✅ đảm bảo array
             } catch (error) {
                 console.log('Error while fetching data', error);
@@ -23,7 +24,7 @@ const User = () => {
 
     const deleteUser = async (userId) => {
         try {
-            await axios.delete(`http://localhost:1234/api/delete/user/${userId}`);
+            await axios.delete(`${API_URL}/api/delete/user/${userId}`);
             setUsers((prev) => prev.filter((u) => u._id !== userId));
             toast.success('Xóa thành công', { position: 'top-right' });
         } catch (error) {
