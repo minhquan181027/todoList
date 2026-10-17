@@ -11,10 +11,11 @@ export const create = async (req, res) => {
 
         }
         const saveUser = await newUser.save();
-        res.status(200).json(saveUser);
+        // res.status(200).json(saveUser);
+        res.status(200).json({ message: "user created successfully" });
 
     } catch (error) {
-        res.status(500).json({ errorMessage: error.message })
+        res.status(500).json({ message: error.message })
     }
 }
 export const getAllUsers = async (req, res) => {
@@ -51,7 +52,7 @@ export const getUpdate = async (req, res) => {
         if (!user) {
             return res.status(400).json({ message: "User  not found!" });
         }
-        const updateData = await User.findByIdAndUpdate(id, req.body, { new: true })
+        const updateData = await User.findByIdAndUpdate(id, req.body, { returnDocument: 'after' })
         res.status(200).json(updateData);
 
     } catch (error) {
