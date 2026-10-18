@@ -39,7 +39,7 @@ const AddUser = () => {
         if (!validate()) return
         try {
             // Dùng try/catch với await cho code gọn gàng
-            await axios.post(`${API_URL}/api/use`, user);
+            await axios.post(`${API_URL}/api/user`, user);
             console.log("User created successfully");
             toast.success("Thêm user thành công", { position: "top-right" })
             navigate("/");
@@ -50,7 +50,7 @@ const AddUser = () => {
                     ...pre, email: err.response.data.message
                 }))
             } else {
-                alert("error")
+                alert("ngu")
             }
         }
     }
