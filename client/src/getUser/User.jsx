@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './User.css';
+import './user.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
