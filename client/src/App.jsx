@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import User from './getUser/User';          // Nếu trên máy là getUser (hoặc GetUser thì sửa theo máy)
 import AddUser from './addUser/AddUser';    // Nếu trên máy là addUser (hoặc AddUser)
-import UpdateUser from './update/UpdateUser'; // Chú ý: Lỗi báo là 'Update' viết hoa chữ U
+import UpdateUser from './upDating/UpdateUser';
 import './App.css';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 

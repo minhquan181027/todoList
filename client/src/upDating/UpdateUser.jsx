@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import './updateUser.css';
+import './UpdateUser.css';
 
 const UpdateUser = () => {
     const API_URL = import.meta.env.VITE_API_URL;
